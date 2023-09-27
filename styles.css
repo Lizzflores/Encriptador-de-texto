@@ -65,6 +65,7 @@ article {
   height: 54px;
   color: white;
   font-size: 18px;
+  margin: 5px;
 }
 
 .decrypt {
@@ -75,6 +76,7 @@ article {
   height: 54px;
   color: darkblue;
   font-size: 18px;
+  margin: 5px;
 }
 
 .asideContainer {
@@ -116,4 +118,5 @@ article {
   color: darkblue;
   font-size: 18px;
   bottom: 40px;
+  margin: 5px;
 }

@@ -1,5 +1,5 @@
 function encrypt() {
-  var textarea = document.getElementById("textToEncrypt");
+  var textarea = document.getElementById("textToDeEncrypt");
   var textareaValue = textarea.value;
   var stringToLowerCase = textareaValue.toLowerCase();
   var encryptText = [];
@@ -28,18 +28,40 @@ function encrypt() {
   var messageElement = document.getElementById("encryptText");
   messageElement.innerHTML = `
       <p class="encryptedParagraph" id="messageEncrypted">${messageEncrypted}</p>
-      <button id= "copyButton" class="copy" type="button">Copy</button>
+      <button id= "copyButton" class="copy" type="button" onclick="copyText()">Copy</button>
     `;
+
+  textarea.value = "";
+}
+
+function copyText() {
+  var copyMessageEncrypted =
+    document.getElementById("messageEncrypted").textContent;
+
+  var textArea = document.createElement("textarea");
+  textArea.value = copyMessageEncrypted;
+
+  document.body.appendChild(textArea);
+
+  textArea.select();
+  textArea.setSelectionRange(0, 99999);
+
+  document.execCommand("copy");
+
+  document.body.removeChild(textArea);
+
+  alert("Copied the text: " + copyMessageEncrypted);
 }
 
 function decrypt() {
+  var textarea = document.getElementById("textToDeEncrypt");
+  var textareaValue = textarea.value;
+  var stringToLowerCase = textareaValue.toLowerCase();
+
   var decryptText = [];
 
-  var encryptedMessage =
-    document.getElementById("messageEncrypted").textContent;
-
-  for (i = 0; i < encryptedMessage.length; i++) {
-    var character = encryptedMessage.charAt(i);
+  for (i = 0; i < stringToLowerCase.length; i++) {
+    var character = stringToLowerCase.charAt(i);
 
     if (character === "e") {
       decryptText.push(character);
@@ -64,9 +86,13 @@ function decrypt() {
   var messageDecrypted = decryptText.join("");
   document.getElementById("encryptText").style.display = "inline";
 
+  console.log(messageDecrypted);
+
   var messageElement = document.getElementById("encryptText");
   messageElement.innerHTML = `
         <p class="encryptedParagraph">${messageDecrypted}</p>
-        <button class="copy" type="button">Copy</button>
+        <button id="copyButton" class="copy" type="button" onclick="copyText()">Copy</button>
       `;
+
+  textarea.value = "";
 }
