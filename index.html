@@ -27,16 +27,25 @@
           <p class="warningText">Only lowercase letters and no accents.</p>
         </div>
         <div class="buttonsContainer">
-          <button class="encrypt" type="button" onclick="encrypt()">Encrypt</button>
+          <button class="encrypt" type="button" onclick="encrypt()">
+            Encrypt
+          </button>
           <button class="decrypt" type="button">Decrypt</button>
         </div>
       </article>
 
       <aside class="asideContainer">
-        <img class="lookImage" src="./assets/Muñeco.png" alt="looking-image" />
-        <h2>No message was found.</h2>
-        <p>Enter the text you want to encrypt or decrypt</p>
-        <button class="copy" type="button">Copy</button>
+        <div id="encryptText" class="encryptContent">
+          <img
+            class="lookImage"
+            src="./assets/Muñeco.png"
+            alt="looking-image"
+          />
+          <h2>No message was found.</h2>
+          <p class="encryptedParagraph">
+            Enter the text you want to encrypt or decrypt
+          </p>
+        </div>
       </aside>
     </section>
   </body>

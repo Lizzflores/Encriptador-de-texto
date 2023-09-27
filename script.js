@@ -23,4 +23,11 @@ function encrypt() {
   }
 
   var messageEncrypted = encryptText.join("");
+  document.getElementById("encryptText").style.display = "inline";
+
+  var messageElement = document.getElementById("encryptText");
+  messageElement.innerHTML = `
+      <p class="encryptedParagraph">${messageEncrypted}</p>
+      <button class="copy" type="button">Copy</button>
+    `;
 }
