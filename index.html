@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text Encryptor</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
   </head>
   <body>
     <section class="container">
@@ -13,21 +14,20 @@
           <img src="./assets/Logo.png" alt="Logo" />
         </header>
 
-        <!-- <input
-          type="text"
-          id="text"
-          name="text"
+        <textarea
+          name=""
+          id="textToEncrypt"
+          cols="30"
+          rows="10"
           placeholder="Enter text here"
-        /> -->
-
-        <textarea name="" id="" cols="30" rows="10" placeholder="Enter text here"></textarea>
+        ></textarea>
 
         <div class="warning">
           <img src="./assets/Group.png" alt="Warning" />
           <p class="warningText">Only lowercase letters and no accents.</p>
         </div>
         <div class="buttonsContainer">
-          <button class="encrypt" type="button">Encrypt</button>
+          <button class="encrypt" type="button" onclick="encrypt()">Encrypt</button>
           <button class="decrypt" type="button">Decrypt</button>
         </div>
       </article>
