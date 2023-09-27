@@ -27,7 +27,46 @@ function encrypt() {
 
   var messageElement = document.getElementById("encryptText");
   messageElement.innerHTML = `
-      <p class="encryptedParagraph">${messageEncrypted}</p>
-      <button class="copy" type="button">Copy</button>
+      <p class="encryptedParagraph" id="messageEncrypted">${messageEncrypted}</p>
+      <button id= "copyButton" class="copy" type="button">Copy</button>
     `;
+}
+
+function decrypt() {
+  var decryptText = [];
+
+  var encryptedMessage =
+    document.getElementById("messageEncrypted").textContent;
+
+  for (i = 0; i < encryptedMessage.length; i++) {
+    var character = encryptedMessage.charAt(i);
+
+    if (character === "e") {
+      decryptText.push(character);
+      i += 4;
+    } else if (character === "i") {
+      decryptText.push(character);
+      i += 3;
+    } else if (character === "a") {
+      decryptText.push(character);
+      i += 1;
+    } else if (character === "o") {
+      decryptText.push(character);
+      i += 3;
+    } else if (character === "u") {
+      decryptText.push(character);
+      i += 3;
+    } else {
+      decryptText.push(character);
+    }
+  }
+
+  var messageDecrypted = decryptText.join("");
+  document.getElementById("encryptText").style.display = "inline";
+
+  var messageElement = document.getElementById("encryptText");
+  messageElement.innerHTML = `
+        <p class="encryptedParagraph">${messageDecrypted}</p>
+        <button class="copy" type="button">Copy</button>
+      `;
 }
